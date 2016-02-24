@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.neo.user.model.User" table="ssh_user">
+        <id name="id" column="id" type="java.lang.Integer">
+			<generator class="native"></generator>
+        </id>
+		<property name="name" column="name" type="string" />
+		<property name="password" column="password" type="string" />
+
+    </class>
+     
+	<resultset name="rsUserVO">
+		<return-scalar column="id" type="java.lang.Integer"/>
+		<return-scalar column="name" type="java.lang.String"/>
+		<return-scalar column="password" type="java.lang.String"/>
+	</resultset>
+	
+	<sql-query name="sqlPersonVO">
+		<![CDATA[ select id, name, password
+		from ssh_user
+ where ]]>
+	</sql-query>
+</hibernate-mapping>
