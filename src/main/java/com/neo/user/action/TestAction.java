@@ -22,11 +22,11 @@ public class TestAction {
     private IUserService userService;
 
     public void testFunc() {
-        System.out.println("==>" + System.currentTimeMillis());
+        System.out.println("===>" + System.currentTimeMillis());
         User user = new User();
-        user.setName("U-" + System.currentTimeMillis());
+        user.setName("U用户-" + System.currentTimeMillis());
         user.setPassword("Pwd-" + System.currentTimeMillis());
         userService.save(user);
-        System.out.println("==>" + System.currentTimeMillis());
+        System.out.println("===>" + System.currentTimeMillis());
     }
 }

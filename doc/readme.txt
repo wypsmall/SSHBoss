@@ -1,6 +1,7 @@
 【2016-02-24】
 1.github [*]@163.com/[*].~12  【解决git提交】
 2.hibernate集成
+3.注解是事务生效
 
 【2016-02-23】
 1.完成工程大家，集成struts2，返回json，解决乱码问题
@@ -9,6 +10,8 @@
     b.添加struts过滤器
     c.考虑集成ext
     d.上传github
+3.集成easyui，静态页面
+http://localhost:8080/SSHBoss/test/Layout.html
 
 【测试地址】
 http://localhost:8080/SSHBoss/strust2Test!testFunc.action 【进入action】

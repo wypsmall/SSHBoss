@@ -23,5 +23,9 @@ public class UserServiceImpl implements IUserService {
     @Transactional
     public void save(User user) {
         userDao.save(user);
+        User tmp = new User();
+        tmp.setName("123456789012345678901234567890");
+        tmp.setPassword("pwd-123");
+        userDao.save(tmp);
     }
 }
