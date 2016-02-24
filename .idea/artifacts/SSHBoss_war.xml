@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="SSHBoss:war">
+  <artifact type="war" build-on-make="true" name="SSHBoss:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="SSHBoss.war">
       <element id="artifact" artifact-name="SSHBoss:war exploded" />

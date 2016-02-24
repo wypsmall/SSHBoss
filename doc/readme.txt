@@ -1,6 +1,6 @@
 【2016-02-24】
-1.github [*]@163.com/[*].~12
-
+1.github [*]@163.com/[*].~12  【解决git提交】
+2.hibernate集成
 
 【2016-02-23】
 1.完成工程大家，集成struts2，返回json，解决乱码问题
@@ -11,8 +11,8 @@
     d.上传github
 
 【测试地址】
-http://localhost:8080/SSHBoss/strust2Test!testFunc.action 【无此action】
-http://localhost:8080/SSHBoss/strust2Test!test.action   【进入action】
+http://localhost:8080/SSHBoss/strust2Test!testFunc.action 【进入action】
+http://localhost:8080/SSHBoss/strust2Test!test.action   【无此action】
 http://localhost:8080/SSHBoss/json/getUserInfo.action   【返回json，开始的时候出现了中文乱码，原因不是配置，是java源码不是utf8的格式】
 http://localhost:8080/SSHBoss/watson/json.action   【返回json】
 
