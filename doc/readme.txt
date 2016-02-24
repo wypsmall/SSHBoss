@@ -1,0 +1,25 @@
+【2016-02-24】
+
+
+【2016-02-23】
+1.完成工程大家，集成struts2，返回json，解决乱码问题
+2.明天计划
+    a.集成hibernate
+    b.添加struts过滤器
+    c.考虑集成ext
+    d.上传github
+
+【测试地址】
+http://localhost:8080/SSHBoss/strust2Test!testFunc.action 【无此action】
+http://localhost:8080/SSHBoss/strust2Test!test.action   【进入action】
+http://localhost:8080/SSHBoss/json/getUserInfo.action   【返回json，开始的时候出现了中文乱码，原因不是配置，是java源码不是utf8的格式】
+http://localhost:8080/SSHBoss/watson/json.action   【返回json】
+
+Struts2返回JSON对象的方法总结
+http://kingxss.iteye.com/blog/1622455
+
+使用IntelliJ IDEA 14和Maven创建java web项目
+http://www.cnblogs.com/jifeng/p/4658765.html
+
+使用Maven搭建Struts2+Spring3+Hibernate4的整合开发环境
+http://www.linuxidc.com/Linux/2015-02/114265p3.htm
