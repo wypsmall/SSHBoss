@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page01</title>
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.4.4/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.4.4/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../jquery-easyui-1.4.4/demo/demo.css">
+    <script type="text/javascript" src="../jquery-easyui-1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../jquery-easyui-1.4.4/jquery.easyui.min.js"></script>
+</head>
+
+<body>
+<div class="easyui-layout" fit="true" space="2">
+    <table id="dg"></table>
+</div>
+
+</body>
+<script>
+    $(document).ready(function () {
+//        alert("begin");
+        $('#dg').datagrid({
+            url: '../watson/userList.action',
+            fit: true,//自动大小
+            border: true,
+            singleSelect: false,//是否单选
+            pagination: true,//分页控件
+            rownumbers: true,//行号
+            //把pagination里面的pageSize和pageList写在了datagrid中就好了
+            //http://blog.csdn.net/wang4978/article/details/43451033
+            pageSize: 5,//每页显示的记录条数，默认为10
+            pageList: [5, 10, 15],//可以设置每页记录条数的列表
+            frozenColumns: [[
+                {field: 'ck', checkbox: true}
+            ]],
+            columns: [[
+                {field: 'id', title: '标识ID', width: 100},
+                {field: 'name', title: '姓名', width: 100},
+                {field: 'password', title: '密码', width: 100, align: 'right'}
+            ]]
+            /*            ,data: [
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value11', name: 'value12', price: "1.0"},
+             {code: 'value12', name: 'value1-2', price: 121.0}
+             ]*/
+        });
+//        alert("fda");
+
+        //设置分页控件
+        var p = $('#dg').datagrid('getPager');
+        $(p).pagination({
+            pageSize: 5,//每页显示的记录条数，默认为10
+            pageList: [5, 10, 15],//可以设置每页记录条数的列表
+            beforePageText: '第',//页数文本框前显示的汉字
+            afterPageText: '页    共 {pages} 页',
+            displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
+            /*onBeforeRefresh:function(){
+             $(this).pagination('loading');
+             alert('before refresh');
+             $(this).pagination('loaded');
+             }*/
+        });
+    });
+
+</script>
+</html>

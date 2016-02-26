@@ -1,3 +1,13 @@
+【2016-02-26】
+1.集成列表空间功能，解决分页传参
+
+jquery easyui datagrid 分页 详解
+http://www.cnblogs.com/huozhicheng/archive/2011/09/27/2193605.html
+
+【2016-02-25】
+1.集成easyui的菜单和Tab+iframe
+2.加入datagrid空间
+
 【2016-02-24】
 1.github [*]@163.com/[*].~12  【解决git提交】
 2.hibernate集成
@@ -18,6 +28,7 @@ http://localhost:8080/SSHBoss/strust2Test!testFunc.action 【进入action】
 http://localhost:8080/SSHBoss/strust2Test!test.action   【无此action】
 http://localhost:8080/SSHBoss/json/getUserInfo.action   【返回json，开始的时候出现了中文乱码，原因不是配置，是java源码不是utf8的格式】
 http://localhost:8080/SSHBoss/watson/json.action   【返回json】
+http://localhost:8080/SSHBoss/watson/userList.action
 
 Struts2返回JSON对象的方法总结
 http://kingxss.iteye.com/blog/1622455
