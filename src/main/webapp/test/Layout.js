@@ -31,10 +31,10 @@ $(document).ready(function () {
         "text": "Languages",
         //"state": "closed",
         "children": [{
-            "text": "Page01.html",
+            "text": "Page01",
             "url": "Page01.html",
         }, {
-            "text": "C#",
+            "text": "Page02",
             "url": "Page02.html",
         }]
     }];

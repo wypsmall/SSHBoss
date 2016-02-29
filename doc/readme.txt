@@ -1,5 +1,9 @@
 【2016-02-26】
 1.集成列表空间功能，解决分页传参
+2.datagrid-toolbar 未实现
+
+jQuery EasyUI教程之datagrid应用（三）
+http://hegz.iteye.com/blog/2032650
 
 jquery easyui datagrid 分页 详解
 http://www.cnblogs.com/huozhicheng/archive/2011/09/27/2193605.html
