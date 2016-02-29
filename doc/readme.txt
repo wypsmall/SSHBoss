@@ -1,3 +1,7 @@
+【2016-02-29】
+1.弹出莫斯对话框口
+http://www.jeasyui.com/demo/main/index.php?plugin=Form&theme=default&dir=ltr&pitem=
+
 【2016-02-26】
 1.集成列表空间功能，解决分页传参
 2.datagrid-toolbar 未实现

@@ -16,18 +16,86 @@
 </div>
 <div id="tb">
     <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="javascript:openWin()">Add</a>
-    <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true" onclick="javascript:alert('Cut')">Cut</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-cut" plain="true" onclick="javascript:openWin()">Cut</a>
     <a href="#" class="easyui-linkbutton" iconCls="icon-save" plain="true" onclick="javascript:alert('Save')">Save</a>
 </div>
-<div id="win" class="easyui-window" title="My Window" style="width:600px;height:400px"
-     data-options="iconCls:'icon-save',modal:true,closed:true">
-    <div class="easyui-layout" data-options="fit:true">
-        <div data-options="region:'north',split:true" style="height:100px"></div>
-        <div data-options="region:'center'">
-            The Content.
-        </div>
+
+<div id="win" class="easyui-window" title="Login" style="width:400px;" data-options="modal:true,closed:true">
+    <form id="ff" method="post">
+        <div style="padding:10px 60px 20px 60px">
+        <table cellpadding="5">
+            <tr>
+                <td>Name:</td>
+                <td><input class="easyui-textbox" type="text" name="name" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input class="easyui-textbox" type="text" name="email"
+                           data-options="required:true,validType:'email'"></input></td>
+            </tr>
+            <tr>
+                <td>Subject:</td>
+                <td><input class="easyui-textbox" type="text" name="subject" data-options="required:true"></input></td>
+            </tr>
+            <tr>
+                <td>Message:</td>
+                <td><input class="easyui-textbox" name="message" data-options="multiline:true"
+                           style="height:60px"></input></td>
+            </tr>
+            <tr>
+                <td>Language:</td>
+                <td>
+                    <select class="easyui-combobox" name="language">
+                        <option value="ar">Arabic</option>
+                        <option value="bg">Bulgarian</option>
+                        <option value="ca">Catalan</option>
+                        <option value="zh-cht">Chinese Traditional</option>
+                        <option value="cs">Czech</option>
+                        <option value="da">Danish</option>
+                        <option value="nl">Dutch</option>
+                        <option value="en" selected="selected">English</option>
+                        <option value="et">Estonian</option>
+                        <option value="fi">Finnish</option>
+                        <option value="fr">French</option>
+                        <option value="de">German</option>
+                        <option value="el">Greek</option>
+                        <option value="ht">Haitian Creole</option>
+                        <option value="he">Hebrew</option>
+                        <option value="hi">Hindi</option>
+                        <option value="mww">Hmong Daw</option>
+                        <option value="hu">Hungarian</option>
+                        <option value="id">Indonesian</option>
+                        <option value="it">Italian</option>
+                        <option value="ja">Japanese</option>
+                        <option value="ko">Korean</option>
+                        <option value="lv">Latvian</option>
+                        <option value="lt">Lithuanian</option>
+                        <option value="no">Norwegian</option>
+                        <option value="fa">Persian</option>
+                        <option value="pl">Polish</option>
+                        <option value="pt">Portuguese</option>
+                        <option value="ro">Romanian</option>
+                        <option value="ru">Russian</option>
+                        <option value="sk">Slovak</option>
+                        <option value="sl">Slovenian</option>
+                        <option value="es">Spanish</option>
+                        <option value="sv">Swedish</option>
+                        <option value="th">Thai</option>
+                        <option value="tr">Turkish</option>
+                        <option value="uk">Ukrainian</option>
+                        <option value="vi">Vietnamese</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+            </div>
+    </form>
+    <div style="text-align:center;padding:5px">
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">Submit</a>
+        <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">Clear</a>
     </div>
 </div>
+
 </body>
 <script>
     $(document).ready(function () {
@@ -71,14 +139,19 @@
             beforePageText: '第',//页数文本框前显示的汉字
             afterPageText: '页    共 {pages} 页',
             displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录',
-            /*onBeforeRefresh:function(){
+            /*
+             onBeforeRefresh:function(){
              $(this).pagination('loading');
              alert('before refresh');
              $(this).pagination('loaded');
-             }*/
+             }
+             */
         });
     });
-
+    function openDlg() {
+        $('#dlg').dialog('open').dialog('center').dialog('setTitle', 'New User');
+        $('#fm').form('clear');
+    }
     function openWin() {
         $('#win').window('open'); // open a window
         //$('#win').window('close'); // close a window
