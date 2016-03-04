@@ -4,6 +4,7 @@ import com.neo.user.model.User;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
@@ -23,5 +24,9 @@ public class UserDaoImpl implements IUserDao {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public User getOne(Integer id) {
+        return (User) sessionFactory.getCurrentSession().get("id", id);
     }
 }

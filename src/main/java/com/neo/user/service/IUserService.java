@@ -11,4 +11,5 @@ public interface IUserService {
 
     public List getList();
     public void save(User user);
+    public User getOne(Integer id);
 }

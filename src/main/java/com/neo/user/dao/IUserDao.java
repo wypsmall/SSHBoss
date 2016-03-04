@@ -10,4 +10,5 @@ import java.io.Serializable;
 public interface IUserDao {
 
     public Serializable save(User user);
+    public User getOne(Integer id);
 }

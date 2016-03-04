@@ -1,3 +1,30 @@
+【2016-03-04】
+1.初步了解xml、注解的加载机制
+2.分析将注解方式入驻切换到xml配置bean的解决方式
+3.还需要深入了解
+
+http://www.cnblogs.com/elleniou/archive/2013/07/03/3168836.html
+http://www.cnblogs.com/iuranus/archive/2012/07/19/2599084.html
+http://blog.csdn.net/chunqiuwei/article/details/16115135
+【场景-1】
+如果所有的配置都采用注解的方式进行，就需要加入
+<context:component-scan base-package="com.neo.account,com.neo.user"/>
+那么@Resource、@Autowired，都会被自动加载
+但是处于依赖引用的泛滥，想对bean进行整治，就需要使用
+    <context:component-scan base-package="com.neo.account,com.neo.user" use-default-filters="false">
+        <context:include-filter type="assignable" expression="com.neo.account.service.AccountServiceImpl"/>
+        <context:include-filter type="assignable" expression="com.neo.user.dao.UserDaoImpl"/> 【或者A方式】
+    </context:component-scan>
+这样的方式制定要注入的bean，如果@Autowired对应的变量没有set方法，就无法使用
+    <bean name="userService" class="com.neo.user.service.UserServiceImpl">
+        <!--<property name="userDao" ref="userDao"></property>-->  【无效的】
+    </bean>
+
+    <bean name="userDao" class="com.neo.user.dao.UserDaoImpl" />   【或者B方式】
+
+信息: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@7adbbfc0: defining beans [dataSource,sessionFactory,transactionManager,org.springframework.aop.config.internalAutoProxyCreator,org.springframework.transaction.annotation.AnnotationTransactionAttributeSource#0,org.springframework.transaction.interceptor.TransactionInterceptor#0,org.springframework.transaction.config.internalTransactionAdvisor,org.springframework.beans.factory.config.PropertyPlaceholderConfigurer#0,accountService,org.springframework.context.annotation.internalConfigurationAnnotationProcessor,org.springframework.context.annotation.internalAutowiredAnnotationProcessor,org.springframework.context.annotation.internalRequiredAnnotationProcessor,org.springframework.context.annotation.internalCommonAnnotationProcessor,org.springframework.context.annotation.internalPersistenceAnnotationProcessor,userService,org.springframework.context.annotation.ConfigurationClassPostProcessor$ImportAwareBeanPostProcessor#0]; root of factory hierarchy
+
+
 【2016-02-29】
 1.弹出莫斯对话框口
 http://www.jeasyui.com/demo/main/index.php?plugin=Form&theme=default&dir=ltr&pitem=

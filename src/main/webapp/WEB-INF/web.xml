@@ -21,6 +21,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.neo.SpringContextLoaderListener</listener-class>
+    </listener>
 
     <!-- spring的配置文件位置 -->
     <context-param>
