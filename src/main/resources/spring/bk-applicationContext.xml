@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd
+     ">
+
+    <!-- 引入属性文件,config.properties位于src/main/resources目录下 -->
+    <context:property-placeholder location="classpath:config.properties"/>
+
+    <!-- 自动扫描dao和service包(自动注入)  -->
+    <context:component-scan base-package="com.neo.account,com.neo.user" use-default-filters="false" annotation-config="false" >
+        <!--<context:include-filter type="assignable" expression="com.neo.account.service.AccountServiceImpl"/>-->
+        <!--<context:include-filter type="assignable" expression="com.neo.user.dao.UserDaoImpl"/>-->
+        <context:include-filter type="assignable" expression="com.neo.user.service.UserServiceImpl"/>
+        <context:include-filter type="assignable" expression="com.neo.account.service.AccountServiceImpl"/>
+        <context:include-filter type="assignable" expression="com.neo.user.dao.UserDaoImpl"/>
+        <!--<context:include-filter type="assignable" expression="com.neo.user.dao.PersonDaoImpl"/>-->
+    </context:component-scan>
+    <!-- autowire="no" -->
+    <!--<bean name="userService" class="com.neo.user.service.UserServiceImpl">-->
+        <!--&lt;!&ndash;<property name="userDao" ref="userDao"></property>&ndash;&gt;-->
+    <!--</bean>-->
+
+    <!--<bean name="userDao" class="com.neo.user.dao.UserDaoImpl"/>-->
+    <!--<bean name="personDao" class="com.neo.user.dao.PersonDaoImpl"/>-->
+
+
+    <!--<context:annotation-config></context:annotation-config>-->
+</beans>
