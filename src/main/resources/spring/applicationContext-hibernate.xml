@@ -69,6 +69,9 @@
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <!-- 是否格式化打印出来的SQL -->
                 <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.current_session_context_class">
+                    org.springframework.orm.hibernate4.SpringSessionContext
+                </prop>
             </props>
         </property>
 
@@ -91,10 +94,11 @@
     </bean>
 
     <!-- 配置事务管理器 -->
-    <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="sessionFactory" ref="sessionFactory"></property>
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+
     <!-- 注解方式配置事物 -->
-    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <tx:annotation-driven/>
 </beans>

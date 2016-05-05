@@ -1,3 +1,35 @@
+【公钥私钥】
+java keytool证书工具使用小结
+http://www.micmiu.com/lang/java/keytool-start-guide/
+
+从Java Keystore文件中提取私钥、证书
+http://blog.csdn.net/moreorless/article/details/4985940
+
+PKCS8EncodedKeySpec
+http://book.2cto.com/201312/37696.html
+
+keytool -genkey -alias michaelkey -keyalg RSA -keysize 1024 -keypass michaelpwd -validity 365 -keystore michael.keystore -storepass michaelpwd2
+keytool -genkey -alias gomeplus -keyalg RSA -keysize 1024 -keypass gomepwd -validity 365 -keystore michael.keystore -storepass michaelpwd2
+
+keytool -list  -v -keystore michael.keystore -storepass michaelpwd2
+keytool -list -rfc -keystore michael.keystore -storepass michaelpwd2
+
+keytool -export -alias michaelkey -keystore michael.keystore -file michaelkey.crt -storepass michaelpwd2
+keytool -export -alias gomeplus -keystore michael.keystore -file gomeplus.crt -storepass michaelpwd2
+
+keytool -printcert -file michaelkey.crt
+keytool -printcert -file gomeplus.crt
+
+D:\Code\Code_IntellijIdea\SSHBoss\michael.keystore
+D:\Code\Code_IntellijIdea\SSHBoss\michael.crt
+
+【密钥生成具体操作】
+1.使用keytool命令生成RSA密钥
+2.使用keytool命令导出证书（证书就是公钥，私钥是不能导出的），crt格式
+3.通过java代码读取keystore的证书私钥，然后写入文件，p8格式
+4.通过代码读取公钥、私钥文件，对字符串做签名验签
+
+
 【2016-03-04】
 1.初步了解xml、注解的加载机制
 2.分析将注解方式入驻切换到xml配置bean的解决方式

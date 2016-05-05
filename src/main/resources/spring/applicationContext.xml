@@ -11,18 +11,8 @@
     <!-- 引入属性文件,config.properties位于src/main/resources目录下 -->
     <context:property-placeholder location="classpath:config.properties"/>
 
-    <!-- 自动扫描dao和service包(自动注入) -->
-    <context:component-scan base-package="com.neo.account,com.neo.user" use-default-filters="false">
-        <context:include-filter type="assignable" expression="com.neo.account.service.AccountServiceImpl"/>
-        <context:include-filter type="assignable" expression="com.neo.user.dao.UserDaoImpl"/>
+    <!-- 自动扫描dao和service包(自动注入)  -->
+    <context:component-scan base-package="com.neo">
     </context:component-scan>
 
-    <bean name="userService" class="com.neo.user.service.UserServiceImpl">
-        <!--<property name="userDao" ref="userDao"></property>-->
-    </bean>
-
-    <!--<bean name="userDao" class="com.neo.user.dao.UserDaoImpl"/>-->
-
-
-    <!--<context:annotation-config></context:annotation-config>-->
 </beans>

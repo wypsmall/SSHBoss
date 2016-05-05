@@ -30,7 +30,7 @@ public class MySpringTest {
 //    @Test
     public void testUserService() {
         IUserService userService = (IUserService) ctx.getBean("userService");
-        userService.getList();
+        userService.getUserList();
 //        System.out.println("[1]==>"+ctx.getBean("userDao"));
         /*User user = userService.getOne(1);
         System.out.println(user);*/

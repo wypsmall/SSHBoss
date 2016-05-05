@@ -9,7 +9,12 @@ import java.util.List;
  */
 public interface IUserService {
 
-    public List getList();
+    public List getUserList();
+    public List getPersonList();
     public void save(User user);
     public User getOne(Integer id);
+
+    public void funcA();
+    public void funcB();
+    public void funcC_AB();
 }

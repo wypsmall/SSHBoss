@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 
@@ -26,7 +27,13 @@ public class UserDaoImpl implements IUserDao {
         return null;
     }
 
+    @Transactional
     public User getOne(Integer id) {
-        return (User) sessionFactory.getCurrentSession().get("id", id);
+        try {
+            return (User) sessionFactory.getCurrentSession().get(User.class, id);
+        } catch (HibernateException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
